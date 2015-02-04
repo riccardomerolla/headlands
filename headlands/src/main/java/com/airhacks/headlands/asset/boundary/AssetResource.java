@@ -2,6 +2,8 @@ package com.airhacks.headlands.asset.boundary;
 
 import com.airhacks.headlands.asset.entity.Asset;
 import com.airhacks.headlands.util.entity.PaginatedListWrapper;
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -16,6 +18,7 @@ import java.util.logging.Logger;
  *         Created on 31/01/15.
  */
 @Path("asset")
+@Api(value = "/asset", description = "the asset API")
 @Stateless
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -64,6 +67,7 @@ public class AssetResource {
     }
 
     @GET
+    @ApiOperation(value = "Get asset by id", notes = "", response = Asset.class)
     @Path("{id}")
     public Asset find(@PathParam("id") String id) {
         return service.find(id);
