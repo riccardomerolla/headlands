@@ -1,6 +1,7 @@
 package com.airhacks.headlands;
 
 import com.airhacks.headlands.asset.boundary.AssetResource;
+import com.airhacks.headlands.measurement.boundary.MeasurementResource;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -20,11 +21,13 @@ public class JAXRSConfiguration extends Application {
         resources.add(com.wordnik.swagger.jaxrs.listing.ApiDeclarationProvider.class);
         resources.add(com.wordnik.swagger.jaxrs.listing.ApiListingResourceJSON.class);
         resources.add(com.wordnik.swagger.jaxrs.listing.ResourceListingProvider.class);
+        resources.add(com.airhacks.cors.CorsResponseFilter.class);
         addRestResourceClasses(resources);
         return resources;
     }
 
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(AssetResource.class);
+        resources.add(MeasurementResource.class);
     }
 }
