@@ -1,6 +1,7 @@
 package com.airhacks.headlands;
 
 import com.airhacks.headlands.asset.boundary.AssetResource;
+import com.airhacks.headlands.maintenance.boundary.MaintenanceResource;
 import com.airhacks.headlands.measurement.boundary.MeasurementResource;
 
 import javax.ws.rs.ApplicationPath;
@@ -29,5 +30,6 @@ public class JAXRSConfiguration extends Application {
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(AssetResource.class);
         resources.add(MeasurementResource.class);
+        resources.add(MaintenanceResource.class);
     }
 }
